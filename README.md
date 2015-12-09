@@ -9,6 +9,7 @@
 <ul>
   <li><b>SCRUM:</b> https://trello.com/b/E5wDSUoy</li>
   <li><b>GCMS:</b> https://github.com/ericlrf/PDSC</li>
+  <li><b>SGBD:</b> https://gerenciadoreventos-ericlrf.rhcloud.com/phpmyadmin</li>
 </ul>
 <hr>
 <li><b>Atividades:</b>
@@ -21,4 +22,6 @@
     <li><del>Listagem dos cadastros</del></li>
   </ol>
 </li>
+#Acesse aqui:
+http://gerenciadoreventos-ericlrf.rhcloud.com
 
