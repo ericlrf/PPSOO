@@ -22,6 +22,5 @@
     <li><del>Listagem dos cadastros</del></li>
   </ol>
 </li>
-#Acesse aqui:
-http://gerenciadoreventos-ericlrf.rhcloud.com
+#Acesse aqui: http://gerenciadoreventos-ericlrf.rhcloud.com
 
