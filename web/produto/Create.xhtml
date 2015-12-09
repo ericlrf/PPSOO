@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProdutoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_produtoPK_id}" for="produtoPK_id" />
+                    <h:inputText id="produtoPK_id" value="#{produtoController.selected.produtoPK.id}" title="#{bundle.CreateProdutoTitle_produtoPK_id}" required="true" requiredMessage="#{bundle.CreateProdutoRequiredMessage_produtoPK_id}"/>
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_nome}" for="nome" />
+                    <h:inputText id="nome" value="#{produtoController.selected.nome}" title="#{bundle.CreateProdutoTitle_nome}" />
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_preco}" for="preco" />
+                    <h:inputText id="preco" value="#{produtoController.selected.preco}" title="#{bundle.CreateProdutoTitle_preco}" />
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_categoria}" for="categoria" />
+                    <h:inputText id="categoria" value="#{produtoController.selected.categoria}" title="#{bundle.CreateProdutoTitle_categoria}" />
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_informacoes}" for="informacoes" />
+                    <h:inputText id="informacoes" value="#{produtoController.selected.informacoes}" title="#{bundle.CreateProdutoTitle_informacoes}" />
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_expositor}" for="expositor" />
+                    <h:selectOneMenu id="expositor" value="#{produtoController.selected.expositor}" title="#{bundle.CreateProdutoTitle_expositor}" required="true" requiredMessage="#{bundle.CreateProdutoRequiredMessage_expositor}">
+                        <f:selectItems value="#{expositorController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProdutoLabel_estande}" for="estande" />
+                    <h:selectOneMenu id="estande" value="#{produtoController.selected.estande}" title="#{bundle.CreateProdutoTitle_estande}" required="true" requiredMessage="#{bundle.CreateProdutoRequiredMessage_estande}">
+                        <f:selectItems value="#{estandeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{produtoController.create}" value="#{bundle.CreateProdutoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{produtoController.prepareList}" value="#{bundle.CreateProdutoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProdutoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

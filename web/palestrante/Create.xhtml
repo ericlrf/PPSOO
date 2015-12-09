@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePalestranteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePalestranteLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{palestranteController.selected.id}" title="#{bundle.CreatePalestranteTitle_id}" required="true" requiredMessage="#{bundle.CreatePalestranteRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreatePalestranteLabel_cpf}" for="cpf" />
+                    <h:inputText id="cpf" value="#{palestranteController.selected.cpf}" title="#{bundle.CreatePalestranteTitle_cpf}" />
+                    <h:outputLabel value="#{bundle.CreatePalestranteLabel_contaBanco}" for="contaBanco" />
+                    <h:inputText id="contaBanco" value="#{palestranteController.selected.contaBanco}" title="#{bundle.CreatePalestranteTitle_contaBanco}" />
+                    <h:outputLabel value="#{bundle.CreatePalestranteLabel_agenciaBanco}" for="agenciaBanco" />
+                    <h:inputText id="agenciaBanco" value="#{palestranteController.selected.agenciaBanco}" title="#{bundle.CreatePalestranteTitle_agenciaBanco}" />
+                    <h:outputLabel value="#{bundle.CreatePalestranteLabel_nomeBanco}" for="nomeBanco" />
+                    <h:inputText id="nomeBanco" value="#{palestranteController.selected.nomeBanco}" title="#{bundle.CreatePalestranteTitle_nomeBanco}" />
+                    <h:outputLabel value="#{bundle.CreatePalestranteLabel_nome}" for="nome" />
+                    <h:inputText id="nome" value="#{palestranteController.selected.nome}" title="#{bundle.CreatePalestranteTitle_nome}" />
+                    <h:outputLabel value="#{bundle.CreatePalestranteLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{palestranteController.selected.email}" title="#{bundle.CreatePalestranteTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreatePalestranteLabel_telefone}" for="telefone" />
+                    <h:inputText id="telefone" value="#{palestranteController.selected.telefone}" title="#{bundle.CreatePalestranteTitle_telefone}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{palestranteController.create}" value="#{bundle.CreatePalestranteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{palestranteController.prepareList}" value="#{bundle.CreatePalestranteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePalestranteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

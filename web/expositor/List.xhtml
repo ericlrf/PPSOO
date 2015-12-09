@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListExpositorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListExpositorEmpty}" rendered="#{expositorController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{expositorController.items.rowCount > 0}">
+                    <h:outputText value="#{expositorController.pagination.pageFirstItem + 1}..#{expositorController.pagination.pageLastItem + 1}/#{expositorController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{expositorController.previous}" value="#{bundle.Previous} #{expositorController.pagination.pageSize}" rendered="#{expositorController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{expositorController.next}" value="#{bundle.Next} #{expositorController.pagination.pageSize}" rendered="#{expositorController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{expositorController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExpositorTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExpositorTitle_cnpj}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cnpj}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExpositorTitle_cep}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cep}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExpositorTitle_endereco}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.endereco}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExpositorTitle_nome}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nome}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExpositorTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExpositorTitle_telefone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{expositorController.prepareView}" value="#{bundle.ListExpositorViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{expositorController.prepareEdit}" value="#{bundle.ListExpositorEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{expositorController.destroy}" value="#{bundle.ListExpositorDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{expositorController.prepareCreate}" value="#{bundle.ListExpositorCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListExpositorIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

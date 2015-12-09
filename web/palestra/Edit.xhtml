@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPalestraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPalestraLabel_palestraPK_id}" for="palestraPK_id" />
+                    <h:inputText id="palestraPK_id" value="#{palestraController.selected.palestraPK.id}" title="#{bundle.EditPalestraTitle_palestraPK_id}" required="true" requiredMessage="#{bundle.EditPalestraRequiredMessage_palestraPK_id}"/>
+                    <h:outputLabel value="#{bundle.EditPalestraLabel_nome}" for="nome" />
+                    <h:inputText id="nome" value="#{palestraController.selected.nome}" title="#{bundle.EditPalestraTitle_nome}" />
+                    <h:outputLabel value="#{bundle.EditPalestraLabel_preco}" for="preco" />
+                    <h:inputText id="preco" value="#{palestraController.selected.preco}" title="#{bundle.EditPalestraTitle_preco}" />
+                    <h:outputLabel value="#{bundle.EditPalestraLabel_informacoes}" for="informacoes" />
+                    <h:inputText id="informacoes" value="#{palestraController.selected.informacoes}" title="#{bundle.EditPalestraTitle_informacoes}" />
+                    <h:outputLabel value="#{bundle.EditPalestraLabel_palestrante}" for="palestrante" />
+                    <h:selectOneMenu id="palestrante" value="#{palestraController.selected.palestrante}" title="#{bundle.EditPalestraTitle_palestrante}" required="true" requiredMessage="#{bundle.EditPalestraRequiredMessage_palestrante}">
+                        <f:selectItems value="#{palestranteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPalestraLabel_palco}" for="palco" />
+                    <h:selectOneMenu id="palco" value="#{palestraController.selected.palco}" title="#{bundle.EditPalestraTitle_palco}" required="true" requiredMessage="#{bundle.EditPalestraRequiredMessage_palco}">
+                        <f:selectItems value="#{palcoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{palestraController.update}" value="#{bundle.EditPalestraSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPalestraViewLink}"/>
+                <br />
+                <h:commandLink action="#{palestraController.prepareList}" value="#{bundle.EditPalestraShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPalestraIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

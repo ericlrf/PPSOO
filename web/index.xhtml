@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h1>Bem Vindo ao Gerenciador de Eventos</h1>
+            <h:form>
+                <h:commandButton id="logout" value="Logout" action="#{usermanager.logout}"/>
+            </h:form>        
+        <br />
+        <h:link outcome="/area/List" value="Show All Area Items"/>
+        <br />
+        <h:link outcome="/estande/List" value="Show All Estande Items"/>
+        <br />
+        <h:link outcome="/expositor/List" value="Show All Expositor Items"/>
+        <br />
+        <h:link outcome="/horario/List" value="Show All Horario Items"/>
+        <br />
+        <h:link outcome="/palco/List" value="Show All Palco Items"/>
+        <br />
+        <h:link outcome="/palestra/List" value="Show All Palestra Items"/>
+        <br />
+        <h:link outcome="/palestrante/List" value="Show All Palestrante Items"/>
+        <br />
+        <h:link outcome="/produto/List" value="Show All Produto Items"/>
+        <br />
+        <!--<h:link outcome="/usuario/List" value="Show All Usuario Items"/>-->
+        <!--Link nao funciona pq a pagina utilizava o bean usuarioController, q exclui p/ por o bean userManager-->
+    </h:body>
+
+
+
+
+
+
+
+
+
+</html>
+

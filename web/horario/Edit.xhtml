@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditHorarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditHorarioLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{horarioController.selected.id}" title="#{bundle.EditHorarioTitle_id}" required="true" requiredMessage="#{bundle.EditHorarioRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditHorarioLabel_evento}" for="evento" />
+                    <h:inputText id="evento" value="#{horarioController.selected.evento}" title="#{bundle.EditHorarioTitle_evento}" />
+                    <h:outputLabel value="#{bundle.EditHorarioLabel_data}" for="data" />
+                    <h:inputText id="data" value="#{horarioController.selected.data}" title="#{bundle.EditHorarioTitle_data}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditHorarioLabel_hora}" for="hora" />
+                    <h:inputText id="hora" value="#{horarioController.selected.hora}" title="#{bundle.EditHorarioTitle_hora}" >
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{horarioController.update}" value="#{bundle.EditHorarioSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditHorarioViewLink}"/>
+                <br />
+                <h:commandLink action="#{horarioController.prepareList}" value="#{bundle.EditHorarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditHorarioIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

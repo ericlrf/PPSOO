@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewExpositorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewExpositorLabel_id}"/>
+                    <h:outputText value="#{expositorController.selected.id}" title="#{bundle.ViewExpositorTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewExpositorLabel_cnpj}"/>
+                    <h:outputText value="#{expositorController.selected.cnpj}" title="#{bundle.ViewExpositorTitle_cnpj}"/>
+                    <h:outputText value="#{bundle.ViewExpositorLabel_cep}"/>
+                    <h:outputText value="#{expositorController.selected.cep}" title="#{bundle.ViewExpositorTitle_cep}"/>
+                    <h:outputText value="#{bundle.ViewExpositorLabel_endereco}"/>
+                    <h:outputText value="#{expositorController.selected.endereco}" title="#{bundle.ViewExpositorTitle_endereco}"/>
+                    <h:outputText value="#{bundle.ViewExpositorLabel_nome}"/>
+                    <h:outputText value="#{expositorController.selected.nome}" title="#{bundle.ViewExpositorTitle_nome}"/>
+                    <h:outputText value="#{bundle.ViewExpositorLabel_email}"/>
+                    <h:outputText value="#{expositorController.selected.email}" title="#{bundle.ViewExpositorTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewExpositorLabel_telefone}"/>
+                    <h:outputText value="#{expositorController.selected.telefone}" title="#{bundle.ViewExpositorTitle_telefone}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{expositorController.destroyAndView}" value="#{bundle.ViewExpositorDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewExpositorEditLink}"/>
+                <br />
+                <h:commandLink action="#{expositorController.prepareCreate}" value="#{bundle.ViewExpositorCreateLink}" />
+                <br />
+                <h:commandLink action="#{expositorController.prepareList}" value="#{bundle.ViewExpositorShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewExpositorIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
