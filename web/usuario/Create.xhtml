@@ -16,7 +16,12 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_tipo}" for="tipo" />
-                    <h:inputText id="tipo" value="#{usermanager.tipo}" title="#{bundle.CreateUsuarioTitle_tipo}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_tipo}"/>
+                    <h:selectOneMenu id="tipo" value="#{usermanager.tipo}" title="#{bundle.CreateUsuarioTitle_tipo}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_tipo}">
+                        <f:selectItem itemLabel="Organizadores" itemValue="o"/>
+                        <f:selectItem itemLabel="Expositores" itemValue="e"/>
+                        <f:selectItem itemLabel="Palestrantes" itemValue="p"/>
+                        <f:selectItem itemLabel="Visitantes" itemValue="v"/>
+                    </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_senha}" for="senha" />
                     <h:inputSecret id="senha" value="#{usermanager.password}" title="#{bundle.CreateUsuarioTitle_senha}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_senha}"/>
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_senha} (verify)" for="senhav" />
@@ -26,11 +31,8 @@
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{usermanager.createUser}" value="#{bundle.CreateUsuarioSaveLink}" />
-                <br />
-                <br />
                 <!--<h:commandLink action="#{usuarioController.prepareList}" value="#{bundle.CreateUsuarioShowAllLink}" immediate="true"/>-->
                 <!--Link nao funciona pq a pagina utilizava o bean usuarioController, q exclui p/ por o bean userManager-->
-                <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.CreateUsuarioIndexLink}"/>
             </h:form>
